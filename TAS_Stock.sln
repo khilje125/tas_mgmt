@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAS_Stock", "TAS_Stock\TAS_Stock.csproj", "{B5B4D626-9581-4231-A8FB-E91A562AF39C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportModel", "ReportModel\ReportModel.csproj", "{9B4C8116-C53E-43C5-B32D-DA0E51578E37}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TASStockSetup", "TASStockSetup\TASStockSetup.vdproj", "{E7320103-781A-4161-AD9D-C666316713F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4D218B99-75C4-4A4C-9772-6DE140F5A372}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5B4D626-9581-4231-A8FB-E91A562AF39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B4D626-9581-4231-A8FB-E91A562AF39C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B4D626-9581-4231-A8FB-E91A562AF39C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B4D626-9581-4231-A8FB-E91A562AF39C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4C8116-C53E-43C5-B32D-DA0E51578E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4C8116-C53E-43C5-B32D-DA0E51578E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4C8116-C53E-43C5-B32D-DA0E51578E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4C8116-C53E-43C5-B32D-DA0E51578E37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7320103-781A-4161-AD9D-C666316713F8}.Debug|Any CPU.ActiveCfg = Debug
+		{E7320103-781A-4161-AD9D-C666316713F8}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,4 +1,4 @@
-+###################
+﻿+###################
 +# compiled source #
 +###################
 +*.com
@@ -27,6 +27,9 @@
 +bin/
 +obj/
 +TestResults/
++TAS_Stock/obj/Debug/
++TAS_Stock/obj/Release/
++packages/*/lib/*.dll
 +
 +###################
 +# Web publish log #
