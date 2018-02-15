@@ -27,9 +27,13 @@
 +bin/
 +obj/
 +TestResults/
++TAS_Stock/bin/Debug/
++TAS_Stock/bin/Release/
 +TAS_Stock/obj/Debug/
 +TAS_Stock/obj/Release/
 +packages/*/lib/*.dll
++ReportModel/obj/
++ReportModel/bin/
 +
 +###################
 +# Web publish log #

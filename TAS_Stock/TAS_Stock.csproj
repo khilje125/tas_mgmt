@@ -810,13 +810,6 @@
   <ItemGroup>
     <None Include="Resources\drag-drop-file-upload.png" />
     <None Include="Resources\40001.png" />
-    <Content Include="DB\StockDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DB\StockDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>StockDB.mdf</DependentUpon>
-    </Content>
     <Content Include="inventory-maintenance-icon.ico" />
     <Content Include="Resources\cloud-computing-laptop-smartphone-tablet.jpg" />
     <Content Include="Resources\inventory-management.jpg" />
@@ -857,7 +850,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DB\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
