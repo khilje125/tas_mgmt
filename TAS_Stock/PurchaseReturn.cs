@@ -70,7 +70,7 @@ namespace TAS_Stock
                 decimal dicountPrice = Convert.ToDecimal(GV_CUSTOMORDER.SelectedRows[0].Cells[6].Value.ToString());
                 int productid = Convert.ToInt32(GV_CUSTOMORDER.SelectedRows[0].Cells[7].Value.ToString());
                 string UserName = LogginInfo.UserID.ToString();
-                order.InsertOrders_PurchasedReturn(customerId, productid, productname, orderid, quentity, price, total, discount, dicountPrice, Convert.ToDateTime(DateTime.Now), UserName);
+               // order.InsertOrders_PurchasedReturn(customerId, productid, productname, orderid, quentity, price, total, discount, dicountPrice, Convert.ToDateTime(DateTime.Now), UserName);
                 MessageBox.Show("Sales Retrun Successfull","Add Return Sales",MessageBoxButtons.OK);
                 groupBox1.Visible = false;
                 groupBox2.Visible = false;

@@ -49,6 +49,8 @@
             this.txtProductConf2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxdiscount = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PB_BROWSE_IMAGE)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -286,11 +288,31 @@
             this.label9.Text = "Class : ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(54, 372);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 18);
+            this.label10.TabIndex = 71;
+            this.label10.Text = "Discount : ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxdiscount
+            // 
+            this.textBoxdiscount.Location = new System.Drawing.Point(155, 375);
+            this.textBoxdiscount.Name = "textBoxdiscount";
+            this.textBoxdiscount.Size = new System.Drawing.Size(250, 20);
+            this.textBoxdiscount.TabIndex = 70;
+            // 
             // FORM_UPDATE_PRODUCT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 564);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBoxdiscount);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBoxclass);
@@ -347,5 +369,7 @@
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.ComboBox comboBoxclass;
         public System.Windows.Forms.TextBox txtProductConf2;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox textBoxdiscount;
     }
 }

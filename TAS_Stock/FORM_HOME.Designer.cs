@@ -41,6 +41,9 @@
             this.productStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalReceiveableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankChequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderQuatationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleByDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ledgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankChequeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +59,7 @@
             this.btn_LogOut = new System.Windows.Forms.Button();
             this.btn_Reports = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.reciptsPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -124,7 +128,10 @@
             this.salesReutnToolStripMenuItem,
             this.productStockToolStripMenuItem,
             this.totalReceiveableToolStripMenuItem,
-            this.bankChequeToolStripMenuItem});
+            this.bankChequeToolStripMenuItem,
+            this.orderQuatationToolStripMenuItem,
+            this.customerSaleToolStripMenuItem,
+            this.saleByDateToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "Report";
@@ -133,36 +140,58 @@
             // salesReutnToolStripMenuItem
             // 
             this.salesReutnToolStripMenuItem.Name = "salesReutnToolStripMenuItem";
-            this.salesReutnToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.salesReutnToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.salesReutnToolStripMenuItem.Text = "Sales Reutn";
             this.salesReutnToolStripMenuItem.Click += new System.EventHandler(this.salesReutnToolStripMenuItem_Click);
             // 
             // productStockToolStripMenuItem
             // 
             this.productStockToolStripMenuItem.Name = "productStockToolStripMenuItem";
-            this.productStockToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.productStockToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.productStockToolStripMenuItem.Text = "Product Stock";
             this.productStockToolStripMenuItem.Click += new System.EventHandler(this.productStockToolStripMenuItem_Click);
             // 
             // totalReceiveableToolStripMenuItem
             // 
             this.totalReceiveableToolStripMenuItem.Name = "totalReceiveableToolStripMenuItem";
-            this.totalReceiveableToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.totalReceiveableToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.totalReceiveableToolStripMenuItem.Text = "Total Receivable";
             this.totalReceiveableToolStripMenuItem.Click += new System.EventHandler(this.totalReceiveableToolStripMenuItem_Click);
             // 
             // bankChequeToolStripMenuItem
             // 
             this.bankChequeToolStripMenuItem.Name = "bankChequeToolStripMenuItem";
-            this.bankChequeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.bankChequeToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.bankChequeToolStripMenuItem.Text = "Bank Cheque";
             this.bankChequeToolStripMenuItem.Click += new System.EventHandler(this.bankChequeToolStripMenuItem_Click);
+            // 
+            // orderQuatationToolStripMenuItem
+            // 
+            this.orderQuatationToolStripMenuItem.Name = "orderQuatationToolStripMenuItem";
+            this.orderQuatationToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.orderQuatationToolStripMenuItem.Text = "Order Quatation";
+            this.orderQuatationToolStripMenuItem.Click += new System.EventHandler(this.orderQuatationToolStripMenuItem_Click);
+            // 
+            // customerSaleToolStripMenuItem
+            // 
+            this.customerSaleToolStripMenuItem.Name = "customerSaleToolStripMenuItem";
+            this.customerSaleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.customerSaleToolStripMenuItem.Text = "Customer-Sale";
+            this.customerSaleToolStripMenuItem.Click += new System.EventHandler(this.customerSaleToolStripMenuItem_Click);
+            // 
+            // saleByDateToolStripMenuItem
+            // 
+            this.saleByDateToolStripMenuItem.Name = "saleByDateToolStripMenuItem";
+            this.saleByDateToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.saleByDateToolStripMenuItem.Text = "Sale by Date";
+            this.saleByDateToolStripMenuItem.Click += new System.EventHandler(this.saleByDateToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ledgerToolStripMenuItem,
-            this.bankChequeToolStripMenuItem1});
+            this.bankChequeToolStripMenuItem1,
+            this.reciptsPaymentsToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
@@ -171,14 +200,14 @@
             // ledgerToolStripMenuItem
             // 
             this.ledgerToolStripMenuItem.Name = "ledgerToolStripMenuItem";
-            this.ledgerToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.ledgerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ledgerToolStripMenuItem.Text = "Ledger";
             this.ledgerToolStripMenuItem.Click += new System.EventHandler(this.ledgerToolStripMenuItem_Click);
             // 
             // bankChequeToolStripMenuItem1
             // 
             this.bankChequeToolStripMenuItem1.Name = "bankChequeToolStripMenuItem1";
-            this.bankChequeToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+            this.bankChequeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.bankChequeToolStripMenuItem1.Text = "Bank Cheque";
             this.bankChequeToolStripMenuItem1.Click += new System.EventHandler(this.bankChequeToolStripMenuItem1_Click);
             // 
@@ -205,7 +234,7 @@
             this.addClassToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(879, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -244,7 +273,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.52632F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 467);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(879, 380);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
             // btn_AddProduct
@@ -254,10 +283,10 @@
             this.btn_AddProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_AddProduct.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.btn_AddProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddProduct.Location = new System.Drawing.Point(95, 51);
+            this.btn_AddProduct.Location = new System.Drawing.Point(94, 42);
             this.btn_AddProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AddProduct.Name = "btn_AddProduct";
-            this.btn_AddProduct.Size = new System.Drawing.Size(228, 118);
+            this.btn_AddProduct.Size = new System.Drawing.Size(227, 95);
             this.btn_AddProduct.TabIndex = 25;
             this.btn_AddProduct.Text = "Add Products";
             this.btn_AddProduct.UseVisualStyleBackColor = false;
@@ -270,10 +299,10 @@
             this.btn_AddCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_AddCategory.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.btn_AddCategory.ForeColor = System.Drawing.Color.White;
-            this.btn_AddCategory.Location = new System.Drawing.Point(327, 51);
+            this.btn_AddCategory.Location = new System.Drawing.Point(325, 42);
             this.btn_AddCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AddCategory.Name = "btn_AddCategory";
-            this.btn_AddCategory.Size = new System.Drawing.Size(228, 118);
+            this.btn_AddCategory.Size = new System.Drawing.Size(227, 95);
             this.btn_AddCategory.TabIndex = 26;
             this.btn_AddCategory.Text = "Add Category";
             this.btn_AddCategory.UseVisualStyleBackColor = false;
@@ -286,10 +315,10 @@
             this.btn_Customers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Customers.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.btn_Customers.ForeColor = System.Drawing.Color.White;
-            this.btn_Customers.Location = new System.Drawing.Point(559, 51);
+            this.btn_Customers.Location = new System.Drawing.Point(556, 42);
             this.btn_Customers.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Customers.Name = "btn_Customers";
-            this.btn_Customers.Size = new System.Drawing.Size(228, 118);
+            this.btn_Customers.Size = new System.Drawing.Size(227, 95);
             this.btn_Customers.TabIndex = 27;
             this.btn_Customers.Text = "Customers";
             this.btn_Customers.UseVisualStyleBackColor = false;
@@ -302,10 +331,10 @@
             this.btn_OrderSystem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_OrderSystem.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.btn_OrderSystem.ForeColor = System.Drawing.Color.White;
-            this.btn_OrderSystem.Location = new System.Drawing.Point(95, 173);
+            this.btn_OrderSystem.Location = new System.Drawing.Point(94, 141);
             this.btn_OrderSystem.Margin = new System.Windows.Forms.Padding(2);
             this.btn_OrderSystem.Name = "btn_OrderSystem";
-            this.btn_OrderSystem.Size = new System.Drawing.Size(228, 118);
+            this.btn_OrderSystem.Size = new System.Drawing.Size(227, 95);
             this.btn_OrderSystem.TabIndex = 28;
             this.btn_OrderSystem.Text = "Order System";
             this.btn_OrderSystem.UseVisualStyleBackColor = false;
@@ -318,10 +347,10 @@
             this.btn_CustomerLedger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_CustomerLedger.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.btn_CustomerLedger.ForeColor = System.Drawing.Color.White;
-            this.btn_CustomerLedger.Location = new System.Drawing.Point(327, 173);
+            this.btn_CustomerLedger.Location = new System.Drawing.Point(325, 141);
             this.btn_CustomerLedger.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CustomerLedger.Name = "btn_CustomerLedger";
-            this.btn_CustomerLedger.Size = new System.Drawing.Size(228, 118);
+            this.btn_CustomerLedger.Size = new System.Drawing.Size(227, 95);
             this.btn_CustomerLedger.TabIndex = 29;
             this.btn_CustomerLedger.Text = "Customer Ledger";
             this.btn_CustomerLedger.UseVisualStyleBackColor = false;
@@ -334,10 +363,10 @@
             this.btn_LogOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_LogOut.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.btn_LogOut.ForeColor = System.Drawing.Color.White;
-            this.btn_LogOut.Location = new System.Drawing.Point(559, 173);
+            this.btn_LogOut.Location = new System.Drawing.Point(556, 141);
             this.btn_LogOut.Margin = new System.Windows.Forms.Padding(2);
             this.btn_LogOut.Name = "btn_LogOut";
-            this.btn_LogOut.Size = new System.Drawing.Size(228, 118);
+            this.btn_LogOut.Size = new System.Drawing.Size(227, 95);
             this.btn_LogOut.TabIndex = 30;
             this.btn_LogOut.Text = "Log Out";
             this.btn_LogOut.UseVisualStyleBackColor = false;
@@ -350,10 +379,10 @@
             this.btn_Reports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Reports.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.btn_Reports.ForeColor = System.Drawing.Color.White;
-            this.btn_Reports.Location = new System.Drawing.Point(327, 295);
+            this.btn_Reports.Location = new System.Drawing.Point(325, 240);
             this.btn_Reports.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Reports.Name = "btn_Reports";
-            this.btn_Reports.Size = new System.Drawing.Size(228, 118);
+            this.btn_Reports.Size = new System.Drawing.Size(227, 95);
             this.btn_Reports.TabIndex = 31;
             this.btn_Reports.Text = "Report";
             this.btn_Reports.UseVisualStyleBackColor = false;
@@ -367,21 +396,28 @@
             this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(560, 296);
+            this.button1.Location = new System.Drawing.Point(557, 241);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(226, 116);
+            this.button1.Size = new System.Drawing.Size(225, 93);
             this.button1.TabIndex = 32;
             this.button1.Text = "Add Class";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // reciptsPaymentsToolStripMenuItem
+            // 
+            this.reciptsPaymentsToolStripMenuItem.Name = "reciptsPaymentsToolStripMenuItem";
+            this.reciptsPaymentsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.reciptsPaymentsToolStripMenuItem.Text = "Recipts_Payments";
+            this.reciptsPaymentsToolStripMenuItem.Click += new System.EventHandler(this.reciptsPaymentsToolStripMenuItem_Click);
+            // 
             // FORM_HOME
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(884, 491);
+            this.ClientSize = new System.Drawing.Size(879, 404);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -429,5 +465,9 @@
         private System.Windows.Forms.Button btn_Reports;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem addClassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderQuatationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerSaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saleByDateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reciptsPaymentsToolStripMenuItem;
     }
 }

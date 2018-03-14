@@ -258,7 +258,7 @@
             this.BTN_Order.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Order.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Order.ForeColor = System.Drawing.Color.White;
-            this.BTN_Order.Location = new System.Drawing.Point(720, 403);
+            this.BTN_Order.Location = new System.Drawing.Point(754, 403);
             this.BTN_Order.Name = "BTN_Order";
             this.BTN_Order.Size = new System.Drawing.Size(137, 30);
             this.BTN_Order.TabIndex = 16;
@@ -276,7 +276,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(632, 403);
+            this.button1.Location = new System.Drawing.Point(666, 403);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 30);
             this.button1.TabIndex = 17;

@@ -3,6 +3,7 @@ using ReportModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -38,35 +39,45 @@ namespace TAS_Stock
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
 
-            reportViewer1.LocalReport.ReportPath = (@"Reports/Report2.rdlc");
-           //reportViewer1.LocalReport.ReportPath = "../../Report2.rdlc";
+            reportViewer1.LocalReport.ReportPath = (@"Reports/SaleReportBydate.rdlc");
+        // reportViewer1.LocalReport.ReportPath = "../../SaleReportBydate.rdlc";
 
-            object totalAmtStr1 = aTable.Compute("Sum(AmountafterDiscount)", "");
+            //object totalAmtStr1 = aTable.Compute("Sum(AmountafterDiscount)", "");
 
-            
-            List<SalesModel> objsalesdetail = new List<SalesModel>();
-            foreach (DataRow row in aTable.Rows)
-            {
-                SalesModel objSalesModel = new SalesModel();
 
-                objSalesModel.ProductName = (row["PRO_NAME"].ToString());
-                objSalesModel.ProductCategory = (row["CAT_NAME"].ToString());
-                objSalesModel.ProductConfig1 = (row["ProductConfig1"].ToString());
-                objSalesModel.ProductConfig2 = (row["ProductConfig2"].ToString());
-                objSalesModel.ProductPrice = Convert.ToDecimal(row["PRICE"].ToString());
-                objSalesModel.ProductQuantity = Convert.ToInt32(row["QTE"].ToString());
-                objSalesModel.ProductTOTAL = Convert.ToDecimal(row["TOTAL"].ToString());
-                objSalesModel.ProductDiscount = Convert.ToDecimal(row["dicount"]);
-                objSalesModel.ProductFinalPrice = Convert.ToDecimal(row["AmountafterDiscount"]);
-                objSalesModel.DateFrom = Convert.ToDateTime(fromdate).ToString("dd/MM/yyyy");
-                objSalesModel.DateTo = Convert.ToDateTime(totdate).ToString("dd/MM/yyyy");
-                objSalesModel.GrandTotalSales = Convert.ToDecimal(totalAmtStr1);
+            //List<SalesModel> objsalesdetail = new List<SalesModel>();
+            //foreach (DataRow row in aTable.Rows)
+            //{
+            //    SalesModel objSalesModel = new SalesModel();
 
-                objsalesdetail.Add(objSalesModel);
+            //    objSalesModel.ProductName = (row["PRO_NAME"].ToString());
+            //    objSalesModel.ProductCategory = (row["CAT_NAME"].ToString());
+            //    objSalesModel.ProductConfig1 = (row["ProductConfig1"].ToString());
+            //    objSalesModel.ProductConfig2 = (row["ProductConfig2"].ToString());
+            //    objSalesModel.ProductPrice = Convert.ToDecimal(row["PRICE"].ToString());
+            //    objSalesModel.ProductQuantity = Convert.ToInt32(row["QTE"].ToString());
+            //    objSalesModel.ProductTOTAL = Convert.ToDecimal(row["TOTAL"].ToString());
+            //    objSalesModel.ProductDiscount = Convert.ToDecimal(row["dicount"]);
+            //    objSalesModel.ProductFinalPrice = Convert.ToDecimal(row["AmountafterDiscount"]);
+            //    objSalesModel.DateFrom = Convert.ToDateTime(fromdate).ToString("dd/MM/yyyy");
+            //    objSalesModel.DateTo = Convert.ToDateTime(totdate).ToString("dd/MM/yyyy");
+            //    objSalesModel.GrandTotalSales = Convert.ToDecimal(totalAmtStr1);
 
-            }
-            Common.DynamicNameAndAddress(reportViewer1);
-            ReportDataSource dsSalesOrder = new ReportDataSource("dsSalesReport", objsalesdetail);
+            //    objsalesdetail.Add(objSalesModel);
+
+            //}
+
+            ReportParameter[] param = new ReportParameter[4];
+            param[0] = new ReportParameter("DateFrom", Convert.ToDateTime(fromdate).ToString("dd/MM/yyyy"));
+            param[1] = new ReportParameter("DateTo", Convert.ToDateTime(totdate).ToString("dd/MM/yyyy"));
+            string schoolName = ConfigurationManager.AppSettings["SchoolNAME"].ToString();
+            string SchoolAddress = ConfigurationManager.AppSettings["SchoolAddress"].ToString();
+       
+            param[2] = new ReportParameter("SchoolName", schoolName);
+            param[3] = new ReportParameter("SchoolAddress", SchoolAddress);
+            reportViewer1.LocalReport.SetParameters(param);
+            //Common.DynamicNameAndAddress(reportViewer1);
+            ReportDataSource dsSalesOrder = new ReportDataSource("DataSet1", aTable);
             localReport.DataSources.Add(dsSalesOrder);
             reportViewer1.Refresh();
 

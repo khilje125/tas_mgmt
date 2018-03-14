@@ -46,6 +46,7 @@ namespace TAS_Stock
                     DGV_CUSTOMER.Columns[5].Visible = false;
                     DGV_CUSTOMER.Columns[6].Visible = false;
                     DGV_CUSTOMER.Columns[7].Visible = false;
+                   
                 }
                 else
                 {
@@ -184,6 +185,8 @@ namespace TAS_Stock
             DGV_PRODUCTS.Columns[8].HeaderText = "SECTION";
             DGV_PRODUCTS.Columns[9].Visible = false;
             DGV_PRODUCTS.Columns[10].Visible = false;
+            DGV_PRODUCTS.RowTemplate.Height = 23;
+           
         }
 
         private void FORM_MANAGE_ORDER_Load(object sender, EventArgs e)
@@ -255,17 +258,19 @@ namespace TAS_Stock
                             // if quantity is fine add the product 
                             else
                             {
-
-                                totalamount = Convert.ToDouble(DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[4].Value);
-                                discountedamount = Convert.ToDouble(DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[6].Value);
-                                afterDiscountedAmount = totalamount - discountedamount;
-
-                                quantityXprice = quantityXprice = Convert.ToInt32(pqty) * Convert.ToDouble(selectedRow.Cells[3].Value.ToString());
-                                DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[4].Value = quantityXprice.ToString();
+                                double _perUnitPrice = Convert.ToDouble(table.Rows[0]["PRICE"].ToString());
+                                totalamount = _perUnitPrice * pqty;// Convert.ToDouble(DGV_PRODUCTS_IN_ORDER.Rows[index].Cell[4].Value);
                                 double _Olddiscount = Convert.ToDouble(selectedRow.Cells[9].Value.ToString());
+                                //discountedamount = Convert.ToDouble(DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[6].Value);
+                                
+
+                                quantityXprice = totalamount;
+                                DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[4].Value = quantityXprice.ToString();
+                                
                                 _DiscountAmount = quantityXprice * _Olddiscount / 100;
+                                afterDiscountedAmount = totalamount - _DiscountAmount;
                                 DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[3].Value = pqty.ToString();
-                                DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[6].Value = quantityXprice - _DiscountAmount;
+                                DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[6].Value = _DiscountAmount;
                                 DGV_PRODUCTS_IN_ORDER.Rows[index].Cells[7].Value = afterDiscountedAmount.ToString();
                                 lblTotalInvoice.Text = getTotal();
 
@@ -565,6 +570,8 @@ namespace TAS_Stock
         {
 
             this.AcceptButton = BTN_INSERT_ORDER;
+            DGV_PRODUCTS.Columns[1].Width = 200;
+           
             //this.reportViewer1.RefreshReport();
         }
 
@@ -767,7 +774,9 @@ namespace TAS_Stock
             txtdiscoutrate.Text = "0";
         }
 
-        private void DGV_PRODUCTS_IN_ORDER_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

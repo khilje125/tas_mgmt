@@ -91,9 +91,12 @@ namespace TAS_Stock
                     objProductOrderDetail.ProductId = Convert.ToInt32(row["PRO_ID"].ToString());
                     objProductOrderDetail.ProductPricePerUnit = Convert.ToDecimal(row["PRICE"]);
                     objProductOrderDetail.ProductQuantity = Convert.ToInt32(row["QTE"]);
-                   
-                   objProductOrderDetail.ProductDiscount = Convert.ToDecimal(row["dicount"]);
-                    objProductOrderDetail.ProductDiscountAmount = Convert.ToDecimal(row["discountedprice"]);
+                    //[ProductDiscountAmount]
+                    decimal diccountedAmount = (Convert.ToDecimal(row["PRICE"]) * Convert.ToDecimal(row["dicount"])/100);
+                    //decimal diccountedAmount = Convert.ToDecimal(row["PRICE"]) * Convert.ToInt32(row["QTE"]);
+                    decimal actualdiscount = (Convert.ToDecimal(row["PRICE"]) - diccountedAmount);//;* Convert.ToDecimal(row["dicount"]) / 100;
+                    objProductOrderDetail.ProductDiscount = Convert.ToDecimal(row["dicount"]);
+                    objProductOrderDetail.ProductDiscountAmount = actualdiscount;
                     objProductOrderDetail.ProductFinalPrice = Convert.ToDecimal(row["AmountafterDiscount"]);
                     lstProductOrderDetail.Add(objProductOrderDetail);
 

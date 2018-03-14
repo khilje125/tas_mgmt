@@ -51,6 +51,7 @@ namespace TAS_Stock
             fup.TB_QUANTITY.Text        = DGV_PRODUCTS.CurrentRow.Cells[2].Value.ToString();
             fup.TB_PRICE.Text           = DGV_PRODUCTS.CurrentRow.Cells[3].Value.ToString();
             fup.TB_DESCRIPTION.Text     = DGV_PRODUCTS.CurrentRow.Cells[5].Value.ToString();
+            fup.textBoxdiscount.Text = DGV_PRODUCTS.CurrentRow.Cells[9].Value.ToString();
             fup.COMBO_CATEGORIES.Text   = DGV_PRODUCTS.CurrentRow.Cells[6].Value.ToString();
          fup.COMBO_CATEGORIES.Text = DGV_PRODUCTS.CurrentRow.Cells[6].Value.ToString();
             fup.comboBoxclass.Text = DGV_PRODUCTS.CurrentRow.Cells[7].Value.ToString();

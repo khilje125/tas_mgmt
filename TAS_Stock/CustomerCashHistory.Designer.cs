@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerCashHistory));
             this.dtfrom = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.gvCustomerLedger = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxCustomer = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -58,9 +57,12 @@
             this.lblhiddenCashbookid = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCustomerLedger)).BeginInit();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.gvCustomerLedger = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCustomerLedger)).BeginInit();
             this.SuspendLayout();
             // 
             // dtfrom
@@ -79,19 +81,6 @@
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Date From : ";
-            // 
-            // gvCustomerLedger
-            // 
-            this.gvCustomerLedger.AllowUserToAddRows = false;
-            this.gvCustomerLedger.AllowUserToDeleteRows = false;
-            this.gvCustomerLedger.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCustomerLedger.Location = new System.Drawing.Point(103, 392);
-            this.gvCustomerLedger.Name = "gvCustomerLedger";
-            this.gvCustomerLedger.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gvCustomerLedger.Size = new System.Drawing.Size(646, 226);
-            this.gvCustomerLedger.TabIndex = 13;
-            this.gvCustomerLedger.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCustomerLedger_CellContentClick);
-            this.gvCustomerLedger.DoubleClick += new System.EventHandler(this.gvCustomerLedger_DoubleClick);
             // 
             // label2
             // 
@@ -361,11 +350,36 @@
             this.panel1.Size = new System.Drawing.Size(790, 83);
             this.panel1.TabIndex = 20;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.gvCustomerLedger, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(113, 385);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(581, 306);
+            this.tableLayoutPanel1.TabIndex = 44;
+            // 
+            // gvCustomerLedger
+            // 
+            this.gvCustomerLedger.AllowUserToAddRows = false;
+            this.gvCustomerLedger.AllowUserToDeleteRows = false;
+            this.gvCustomerLedger.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvCustomerLedger.Location = new System.Drawing.Point(3, 3);
+            this.gvCustomerLedger.Name = "gvCustomerLedger";
+            this.gvCustomerLedger.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gvCustomerLedger.Size = new System.Drawing.Size(575, 288);
+            this.gvCustomerLedger.TabIndex = 14;
+            // 
             // CustomerCashHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 688);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblhiddenCashbookid);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -377,18 +391,18 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBoxCustomer);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.gvCustomerLedger);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtfrom);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CustomerCashHistory";
             this.Text = "Customer Ledger";
             this.Load += new System.EventHandler(this.CustomerCashHistory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gvCustomerLedger)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvCustomerLedger)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,7 +412,6 @@
 
         public System.Windows.Forms.DateTimePicker dtfrom;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView gvCustomerLedger;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxCustomer;
         private System.Windows.Forms.Panel panel2;
@@ -425,5 +438,7 @@
         private System.Windows.Forms.Label lblhiddenCashbookid;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView gvCustomerLedger;
     }
 }

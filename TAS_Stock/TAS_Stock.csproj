@@ -166,6 +166,12 @@
     <Compile Include="CustomerCashHistory.Designer.cs">
       <DependentUpon>CustomerCashHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerSaleReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerSaleReturn.Designer.cs">
+      <DependentUpon>CustomerSaleReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer_Ledger_Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,11 @@
     <Compile Include="DataBaseBackUp.Designer.cs">
       <DependentUpon>DataBaseBackUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="dsCustomerLedger.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,6 +205,41 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCustomerLedger1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCustomerSale.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCustomerSale.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCustomerWiseSaleReturn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCustomerWiseSaleReturn.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsOrderQuatation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsOrderQuatation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsQuatation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsQuatation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReciptPayment.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReciptPayment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsSaleByDate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSaleByDate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsSaleByDates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSaleByDates.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsStock.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -385,11 +431,29 @@
     <Compile Include="PurchaseReturn.Designer.cs">
       <DependentUpon>PurchaseReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReciptsPayaments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReciptsPayaments.Designer.cs">
+      <DependentUpon>ReciptsPayaments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReiptandPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReiptandPayment.Designer.cs">
+      <DependentUpon>ReiptandPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportTotalReceivable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReportTotalReceivable.Designer.cs">
       <DependentUpon>ReportTotalReceivable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleByCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleByCustomer.Designer.cs">
+      <DependentUpon>SaleByCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="SaleReport.cs">
       <SubType>Form</SubType>
@@ -462,6 +526,19 @@
     <EmbeddedResource Include="CashbookForm.resx">
       <DependentUpon>CashbookForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerSaleReturn.resx">
+      <DependentUpon>CustomerSaleReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReciptPayment.rdlc" />
+    <EmbeddedResource Include="ReciptsPayaments.resx">
+      <DependentUpon>ReciptsPayaments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReiptandPayment.resx">
+      <DependentUpon>ReiptandPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerWiseSale.rdlc" />
+    <EmbeddedResource Include="Reports\OrderQuatation.rdlc" />
+    <EmbeddedResource Include="Reports\CustomerWiseSaleReturn.rdlc" />
     <EmbeddedResource Include="Cus_Sale_Return.resx">
       <DependentUpon>Cus_Sale_Return.cs</DependentUpon>
     </EmbeddedResource>
@@ -560,20 +637,23 @@
     <EmbeddedResource Include="PurchaseReturn.resx">
       <DependentUpon>PurchaseReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\BankCheque.rdlc" />
-    <EmbeddedResource Include="Reports\CurrentStock.rdlc" />
-    <EmbeddedResource Include="Reports\CustomerLedger.rdlc" />
-    <EmbeddedResource Include="Reports\OrderInvoice.rdlc" />
+    <EmbeddedResource Include="Reports\Report3.rdlc" />
+    <EmbeddedResource Include="BankCheque.rdlc" />
+    <EmbeddedResource Include="CurrentStock.rdlc" />
+    <EmbeddedResource Include="CustomerLedger.rdlc" />
+    <EmbeddedResource Include="OrderInvoice.rdlc" />
     <EmbeddedResource Include="Reports\Report1.rdlc" />
-    <EmbeddedResource Include="Reports\Report2.rdlc" />
-    <EmbeddedResource Include="Report3.rdlc" />
-    <EmbeddedResource Include="Reports\TotalReceiveable.rdlc" />
+    <EmbeddedResource Include="TotalReceiveable.rdlc" />
     <EmbeddedResource Include="ReportTotalReceivable.resx">
       <DependentUpon>ReportTotalReceivable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleByCustomer.resx">
+      <DependentUpon>SaleByCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SaleReport.resx">
       <DependentUpon>SaleReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SaleReportBydate.rdlc" />
     <EmbeddedResource Include="SALES_TOTAL.resx">
       <DependentUpon>SALES_TOTAL.cs</DependentUpon>
     </EmbeddedResource>
@@ -602,6 +682,17 @@
     <None Include="CustomerBankChequeDataSetUpdate.xss">
       <DependentUpon>CustomerBankChequeDataSetUpdate.xsd</DependentUpon>
     </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="dsCustomerLedger.xsc">
       <DependentUpon>dsCustomerLedger.xsd</DependentUpon>
     </None>
@@ -623,6 +714,83 @@
     </None>
     <None Include="dsCustomerLedger1.xss">
       <DependentUpon>dsCustomerLedger1.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomerSale.xsc">
+      <DependentUpon>dsCustomerSale.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomerSale.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCustomerSale.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsCustomerSale.xss">
+      <DependentUpon>dsCustomerSale.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomerWiseSaleReturn.xsc">
+      <DependentUpon>dsCustomerWiseSaleReturn.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomerWiseSaleReturn.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCustomerWiseSaleReturn.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsCustomerWiseSaleReturn.xss">
+      <DependentUpon>dsCustomerWiseSaleReturn.xsd</DependentUpon>
+    </None>
+    <None Include="dsOrderQuatation.xsc">
+      <DependentUpon>dsOrderQuatation.xsd</DependentUpon>
+    </None>
+    <None Include="dsOrderQuatation.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsOrderQuatation.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsOrderQuatation.xss">
+      <DependentUpon>dsOrderQuatation.xsd</DependentUpon>
+    </None>
+    <None Include="dsQuatation.xsc">
+      <DependentUpon>dsQuatation.xsd</DependentUpon>
+    </None>
+    <None Include="dsQuatation.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsQuatation.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsQuatation.xss">
+      <DependentUpon>dsQuatation.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciptPayment.xsc">
+      <DependentUpon>dsReciptPayment.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciptPayment.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReciptPayment.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsReciptPayment.xss">
+      <DependentUpon>dsReciptPayment.xsd</DependentUpon>
+    </None>
+    <None Include="dsSaleByDate.xsc">
+      <DependentUpon>dsSaleByDate.xsd</DependentUpon>
+    </None>
+    <None Include="dsSaleByDate.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSaleByDate.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsSaleByDate.xss">
+      <DependentUpon>dsSaleByDate.xsd</DependentUpon>
+    </None>
+    <None Include="dsSaleByDates.xsc">
+      <DependentUpon>dsSaleByDates.xsd</DependentUpon>
+    </None>
+    <None Include="dsSaleByDates.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSaleByDates.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsSaleByDates.xss">
+      <DependentUpon>dsSaleByDates.xsd</DependentUpon>
     </None>
     <None Include="dsStock.xsc">
       <DependentUpon>dsStock.xsd</DependentUpon>
@@ -810,6 +978,13 @@
   <ItemGroup>
     <None Include="Resources\drag-drop-file-upload.png" />
     <None Include="Resources\40001.png" />
+    <Content Include="DB\StockDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DB\StockDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>StockDB.mdf</DependentUpon>
+    </Content>
     <Content Include="inventory-maintenance-icon.ico" />
     <Content Include="Resources\cloud-computing-laptop-smartphone-tablet.jpg" />
     <Content Include="Resources\inventory-management.jpg" />
@@ -850,9 +1025,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DB\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

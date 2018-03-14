@@ -51,7 +51,30 @@ namespace TAS_Stock
             db.closeConnection();
             return invoiceId;
         }
+        // master sale retrun
 
+        public int insertMasterSaleReturn(int Cus_Id)
+        {
+            int invoiceId = 0;
+            DB db = new DB();
+            db.openConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+
+            parameters[0] = new SqlParameter("@customerId", SqlDbType.Int);
+            parameters[0].Value = Cus_Id;
+            invoiceId = db.ExecuteProcedureReturnIdentity("spr_insert_masterSale", parameters);
+            db.closeConnection();
+            return invoiceId;
+        }
+
+        public DataTable getReceiiptsAndPayment()
+        {
+            DB db = new DB();
+            DataTable tab = new DataTable();
+            tab = db.getData("[spr_getAccountTotal]");
+            db.closeConnection();
+            return tab;
+        }
         // Bank Cheque Insertion 
 
         public int InsertBankCheque(int Cus_Id, int Inv_Id,string ChequeNo, decimal ChequeAmount, string banckName, string ChequeDueDate, string AccountTitle)
@@ -107,6 +130,17 @@ namespace TAS_Stock
             parameters[1].Value = Convert.ToDateTime(toDate);
             parameters[2].Value = Convert.ToInt32(customerId);
             tab = db.getData("[sp_GetCustomer_Ledger_Report]", parameters);
+            db.closeConnection();
+
+            return tab;
+        }
+
+        public DataTable getReciptAndPaymentList()
+        {
+            DB db = new DB();
+            DataTable tab = new DataTable();
+           
+            tab = db.getData("[sp_GetReciptsAndPaymnetlist]");
             db.closeConnection();
 
             return tab;
@@ -186,6 +220,31 @@ namespace TAS_Stock
             return invoiceId;
         }
 
+        public void UpdateReciptAndPayment(int accountId, string partyname, decimal recipts, decimal payment, decimal total, string CashbokDate)
+        {
+           
+            DB db = new DB();
+            db.openConnection();
+            SqlParameter[] parameters = new SqlParameter[6];
+
+            parameters[0] = new SqlParameter("@accountId", SqlDbType.Int);
+            parameters[0].Value = accountId;
+            parameters[1] = new SqlParameter("@partyname", SqlDbType.VarChar);
+            parameters[1].Value = partyname;
+            parameters[2] = new SqlParameter("@recipts", SqlDbType.Money);
+            parameters[2].Value = recipts;
+            parameters[3] = new SqlParameter("@payment", SqlDbType.Money);
+            parameters[3].Value = payment;
+            parameters[4] = new SqlParameter("@CashbokDate", SqlDbType.VarChar);
+            parameters[4].Value = Convert.ToDateTime(CashbokDate);
+            parameters[5] = new SqlParameter("@Total", SqlDbType.Money);
+            parameters[5].Value = Convert.ToDouble(total);
+            // @CashbokDate
+            db.setData("spr_update_ReceiptePayment", parameters);
+            db.closeConnection();
+           
+        }
+
         public DataTable getCustomerLedgeer(string fromdate, string toDate, int customerId)
         {
             DB db = new DB();
@@ -242,6 +301,34 @@ namespace TAS_Stock
 
                 throw ex;
             }
+        }
+
+        public int insertReceiptAndPayment(string PartyName, decimal Receipts, decimal Payments, string AddedDate, decimal Total,int AddedBy)
+        {
+            int receiptId = 0;
+            DB db = new DB();
+            db.openConnection();
+            SqlParameter[] parameters = new SqlParameter[6];
+
+            parameters[0] = new SqlParameter("@PartyName", SqlDbType.VarChar);
+            parameters[0].Value = PartyName;
+
+            parameters[1] = new SqlParameter("@Receipts", SqlDbType.Money);
+            parameters[1].Value = Receipts;
+
+            parameters[2] = new SqlParameter("@Payments", SqlDbType.Money);
+            parameters[2].Value = Payments;
+
+            parameters[3] = new SqlParameter("@AddedDate", SqlDbType.DateTime);
+            parameters[3].Value = AddedDate;
+            parameters[4] = new SqlParameter("@Total", SqlDbType.Money);
+            parameters[4].Value = Total;
+            parameters[5] = new SqlParameter("@AddedBy", SqlDbType.Int);
+            parameters[5].Value = AddedBy;
+
+            receiptId = db.ExecuteProcedureReturnIdentity("spr_insert_ReceiptAndPayment", parameters);
+            db.closeConnection();
+            return receiptId;
         }
     }
 }

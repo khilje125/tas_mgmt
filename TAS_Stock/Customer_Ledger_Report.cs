@@ -25,14 +25,42 @@ namespace TAS_Stock
 
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 LocalReport localReport = reportViewer1.LocalReport;
-                reportViewer1.LocalReport.ReportPath = (@"Reports/CustomerLedger.rdlc");
-              // reportViewer1.LocalReport.ReportPath = "../../CustomerLedger.rdlc";
+                //reportViewer1.LocalReport.ReportPath = (@"Reports/CustomerLedger.rdlc");
+              reportViewer1.LocalReport.ReportPath = "../../CustomerLedger.rdlc";
                 ReportParameter[] param = new ReportParameter[2];
                 param[0] = new ReportParameter("rptParamtFromDate", fromdate);
                 param[1] = new ReportParameter("rptParamtToDate", toDate);
 
                 reportViewer1.LocalReport.SetParameters(param);
                 ReportDataSource dsSalesOrder = new ReportDataSource("dsCustomerLedger", aTable);
+                localReport.DataSources.Add(dsSalesOrder);
+                Common.DynamicNameAndAddress(reportViewer1);
+                reportViewer1.Refresh();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void Customer_Ledger_Report_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void GetrRecipts()
+        {
+            try
+            {
+                CashBook ab = new CashBook();
+                DataTable aTable = ab.getReciptAndPaymentList();
+
+                reportViewer1.ProcessingMode = ProcessingMode.Local;
+                LocalReport localReport = reportViewer1.LocalReport;
+               reportViewer1.LocalReport.ReportPath = (@"Reports/ReciptPayment.rdlc");
+                // reportViewer1.LocalReport.ReportPath = "../../ReciptPayment.rdlc";
+                ReportDataSource dsSalesOrder = new ReportDataSource("dsReciptPayment", aTable);
                 localReport.DataSources.Add(dsSalesOrder);
                 Common.DynamicNameAndAddress(reportViewer1);
                 reportViewer1.Refresh();
