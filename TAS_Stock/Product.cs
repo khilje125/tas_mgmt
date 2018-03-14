@@ -91,7 +91,8 @@ namespace TAS_Stock
             db.closeConnection();
             return table;
         }
-
+       
+     
         //over load
 
         public DataTable getProductsByCategory(int cat_id,string SearchCriteria)
@@ -139,12 +140,12 @@ namespace TAS_Stock
            
         }
 
-        public void updateProduct(int pid, int cid, string name, string price, byte[] image, int quantity, string desc, string CLASSNAME,string section)
+        public void updateProduct(int pid, int cid, string name, string price, byte[] image, int quantity, string desc, string CLASSNAME,string section,int discount)
         {
 
             DB db = new DB();
             db.openConnection();
-            SqlParameter[] parameters = new SqlParameter[9];
+            SqlParameter[] parameters = new SqlParameter[10];
 
             parameters[0] = new SqlParameter("@pid", SqlDbType.Int);
             parameters[0].Value = pid;
@@ -172,6 +173,8 @@ namespace TAS_Stock
 
             parameters[8] = new SqlParameter("@ProductConfig2", SqlDbType.VarChar, 50);
             parameters[8].Value = section;
+            parameters[9] = new SqlParameter("@Discount", SqlDbType.Int);
+            parameters[9].Value = discount;
             db.setData("spr_update_Product", parameters);
             db.closeConnection();
             

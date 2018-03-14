@@ -125,104 +125,115 @@ namespace TAS_Stock
 
             try
             {
-                int invoiceId = 0;
-                
-                decimal orderTotal = Form1.currentInvoiceTotal;
-                var customerID = Form1.currentCustomerId;
-                var orderDate = Form1.currentOrderDate;
-                decimal val1 = 0;
-                decimal val2 = getSafeStringToDecimal(textBoxcheckAmount1.Text);
-                decimal val3 = getSafeStringToDecimal(textBoxcheckAmount2.Text);
-                decimal val4 = getSafeStringToDecimal(textBoxcheckAmount3.Text);
-                decimal val5 = getSafeStringToDecimal(textBoxcheckAmount4.Text);
-                decimal val6 = getSafeStringToDecimal(textBoxcheckAmount5.Text);
-                decimal perviousbalence = getSafeStringToDecimal(lblcurrentOrderAmount.Text);
-                if (ddlPayment.SelectedIndex == 2)// cheque
+                DialogResult result = MessageBox.Show("Do You Want to Generate This Order?", "Gernerate Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result.Equals(DialogResult.OK))
                 {
-                    val1 = Convert.ToDecimal(textBoxcheckamount.Text);
-                    decimal checkedbalnce = Convert.ToDecimal(val1 + val2 + val3 + val4 + val5 + val6);
-                    if (perviousbalence == checkedbalnce)
-                    {
+                    int invoiceId = 0;
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Amount is not equal to actual invoice." + Environment.NewLine + "Amount must be equal to the invoice amount.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        return;
-                    }
-                }
-                if (ddlPayment.SelectedIndex == 4)
-                {
-                    val1 = getSafeStringToDecimal(textBoxcashamount.Text.Trim());
-                    val2 = getSafeStringToDecimal(textBoxcheckamount.Text.Trim());
-                    decimal checkedbalnce1 = Convert.ToDecimal(val1 + val2 + val3 + val4 + val5 + val6);
-                    if (perviousbalence == checkedbalnce1)
-                    {
-                    }
-                    else
-                    {
-                        MessageBox.Show("Amount is not equal to actual invoice." + Environment.NewLine + "Amount must be equal to the invoice amount.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        return;
-                    }
-                }
-                int generatedOrderID = processOrder();
-                if (generatedOrderID > 0)
-                {
-                    if (ddlPayment.SelectedIndex == 1) //total on credit
-                    {
-                        GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, 0, 0, orderDate.ToShortDateString());
-                    }
+                    decimal orderTotal = Form1.currentInvoiceTotal;
+                    var customerID = Form1.currentCustomerId;
+                    var orderDate = Form1.currentOrderDate;
+                    decimal val1 = 0;
+                    decimal val2 = getSafeStringToDecimal(textBoxcheckAmount1.Text);
+                    decimal val3 = getSafeStringToDecimal(textBoxcheckAmount2.Text);
+                    decimal val4 = getSafeStringToDecimal(textBoxcheckAmount3.Text);
+                    decimal val5 = getSafeStringToDecimal(textBoxcheckAmount4.Text);
+                    decimal val6 = getSafeStringToDecimal(textBoxcheckAmount5.Text);
+                    decimal val7 = 0;
+                    decimal perviousbalence = getSafeStringToDecimal(lblcurrentOrderAmount.Text);
                     if (ddlPayment.SelectedIndex == 2)// cheque
                     {
-                        string checkNumber = textBoxcheque.Text.Trim();
-                        decimal checkAmount = Convert.ToDecimal(textBoxcheckamount.Text.ToLower().Trim());
-                        decimal cashAmount = 0;
-                        string checkBankName = textBoxBankName.Text.Trim();
-                        string checkAccountTile = textBoxaccountTitle.Text.Trim();
-                        string checkClearingDate = dtCheckDate.Text;
-                        invoiceId = GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, 0, checkAmount, orderDate.ToShortDateString(), checkNumber, checkAccountTile, checkBankName, checkClearingDate);
-                        cb.InsertBankCheque(customerID, invoiceId, checkNumber, checkAmount, checkBankName, checkClearingDate.ToString(), checkAccountTile);
-                        invoiceId = MultipleChequeHandle(invoiceId, generatedOrderID, orderTotal, customerID, orderDate);
+                        val1 = Convert.ToDecimal(textBoxcheckamount.Text);
+                        decimal checkedbalnce = Convert.ToDecimal(val1 + val2 + val3 + val4 + val5 + val6);
+                        if (perviousbalence == checkedbalnce)
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Amount is not equal to actual invoice." + Environment.NewLine + "Amount must be equal to the invoice amount.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            return;
+                        }
                     }
-                    if (ddlPayment.SelectedIndex == 3 || ddlPayment.SelectedIndex == 5)// cash
+                    if (ddlPayment.SelectedIndex == 4)
                     {
-                        string checkNumber = string.Empty;
-                        decimal checkAmount = 0;
-                        decimal cashAmount = Convert.ToDecimal(textBoxcashamount.Text.ToLower().Trim());
-                        string checkBankName = string.Empty;
-                        string checkAccountTile = string.Empty;
-                        string checkClearingDate = string.Empty;
-                        invoiceId = GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, cashAmount, 0, orderDate.ToShortDateString(), null, null, null, null);
+                        val1 = getSafeStringToDecimal(textBoxcashamount.Text.Trim());
+                        val7 = getSafeStringToDecimal(textBoxcheckamount.Text.Trim());
+                        decimal checkedbalnce1 = Convert.ToDecimal(val7+val1 + val2 + val3 + val4 + val5 + val6);
+                        if (perviousbalence == checkedbalnce1)
+                        {
+                        }
+                        else
+                        {
+                            MessageBox.Show("Amount is not equal to actual invoice." + Environment.NewLine + "Amount must be equal to the invoice amount.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            return;
+                        }
                     }
-                    if (ddlPayment.SelectedIndex == 4) // cheque and cash
+                    int generatedOrderID = processOrder();
+                    if (generatedOrderID > 0)
                     {
+                        if (ddlPayment.SelectedIndex == 1) //total on credit
+                        {
+                            GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, 0, 0, orderDate.ToShortDateString());
+                        }
+                        if (ddlPayment.SelectedIndex == 2)// cheque
+                        {
+                            string checkNumber = textBoxcheque.Text.Trim();
+                            decimal checkAmount = Convert.ToDecimal(textBoxcheckamount.Text.ToLower().Trim());
+                            decimal cashAmount = 0;
+                            string checkBankName = textBoxBankName.Text.Trim();
+                            string checkAccountTile = textBoxaccountTitle.Text.Trim();
+                            string checkClearingDate = dtCheckDate.Text;
+                            invoiceId = GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, 0, checkAmount, orderDate.ToShortDateString(), checkNumber, checkAccountTile, checkBankName, checkClearingDate);
+                            cb.InsertBankCheque(customerID, invoiceId, checkNumber, checkAmount, checkBankName, checkClearingDate.ToString(), checkAccountTile);
+                            invoiceId = MultipleChequeHandle(invoiceId, generatedOrderID, orderTotal, customerID, orderDate);
+                        }
+                        if (ddlPayment.SelectedIndex == 3 || ddlPayment.SelectedIndex == 5)// cash
+                        {
+                            string checkNumber = string.Empty;
+                            decimal checkAmount = 0;
+                            decimal cashAmount = Convert.ToDecimal(textBoxcashamount.Text.ToLower().Trim());
+                            string checkBankName = string.Empty;
+                            string checkAccountTile = string.Empty;
+                            string checkClearingDate = string.Empty;
+                            invoiceId = GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, cashAmount, 0, orderDate.ToShortDateString(), null, null, null, null);
+                        }
+                        if (ddlPayment.SelectedIndex == 4) // cheque and cash
+                        {
 
-                        string checkNumber = textBoxcheque.Text.Trim();
-                        decimal checkAmount = Convert.ToDecimal(textBoxcheckamount.Text.ToLower().Trim());
-                        decimal cashAmount = Convert.ToDecimal(textBoxcashamount.Text.ToLower().Trim()); ;
-                        string checkBankName = textBoxBankName.Text.Trim();
-                        string checkAccountTile = textBoxaccountTitle.Text.Trim();
-                        string checkClearingDate = dtCheckDate.Text;
-                        invoiceId = GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, cashAmount, checkAmount, orderDate.ToShortDateString(), checkNumber, checkAccountTile, checkBankName, checkClearingDate);
-                        invoiceId = MultipleChequeHandle(invoiceId, generatedOrderID, orderTotal, customerID, orderDate);
-                        cb.InsertBankCheque(customerID, invoiceId, checkNumber, checkAmount, checkBankName, checkClearingDate.ToString(), checkAccountTile);
+                            string checkNumber = textBoxcheque.Text.Trim();
+                            decimal checkAmount = Convert.ToDecimal(textBoxcheckamount.Text.ToLower().Trim());
+                            decimal cashAmount = Convert.ToDecimal(textBoxcashamount.Text.ToLower().Trim()); ;
+                            string checkBankName = textBoxBankName.Text.Trim();
+                            string checkAccountTile = textBoxaccountTitle.Text.Trim();
+                            string checkClearingDate = dtCheckDate.Text;
+                            invoiceId = GenerateCashbook(generatedOrderID, customerID, ddlPayment.SelectedIndex, orderTotal, cashAmount, checkAmount, orderDate.ToShortDateString(), checkNumber, checkAccountTile, checkBankName, checkClearingDate);
+                            invoiceId = MultipleChequeHandle(invoiceId, generatedOrderID, orderTotal, customerID, orderDate);
+                            cb.InsertBankCheque(customerID, invoiceId, checkNumber, checkAmount, checkBankName, checkClearingDate.ToString(), checkAccountTile);
 
 
+                        }
+                        MessageBox.Show("Your order completed successfully.\n\r Invoice Generating...");
+                        Form1 a = new Form1();
+                        a.Close();
+                        SaleReport ar = new SaleReport();
+                        ar.ReportViewerTest(Convert.ToInt32(generatedOrderID));
+                        ar.ShowDialog();
+                        BTN_Order.Visible = true;
+                        BTN_Order.Visible = false;
+                        button1.Visible = true;
                     }
-                    MessageBox.Show("Your order completed successfully.\n\r Invoice Generating...");
-                    Form1 a = new Form1();
-                    a.Close();
-                    SaleReport ar = new SaleReport();
-                    ar.ReportViewerTest(Convert.ToInt32(generatedOrderID));
-                    ar.ShowDialog();
-                    BTN_Order.Visible = true;
-                    BTN_Order.Visible = false;
-                    button1.Visible = true;
+                    else
+                    {
+                        MessageBox.Show("Error", "Order NOT Generated", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Order NOT Generated", MessageBoxButtons.OK);
                 }
+
+
+               
             }
             catch (Exception ec)
             { MessageBox.Show(ec.Message); }
@@ -453,6 +464,11 @@ namespace TAS_Stock
         {
             groupBoxmulticheque.Visible = true; ;
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

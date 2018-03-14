@@ -71,7 +71,7 @@ namespace TAS_Stock
             else
             {
                 product.updateProduct(Convert.ToInt32(LBL_PID.Text), Convert.ToInt32(COMBO_CATEGORIES.SelectedValue), TB_NAME.Text,
-                                TB_PRICE.Text, image, Convert.ToInt32(TB_QUANTITY.Text), TB_DESCRIPTION.Text, Convert.ToString(comboBoxclass.SelectedValue),txtProductConf2.Text);
+                                TB_PRICE.Text, image, Convert.ToInt32(TB_QUANTITY.Text), TB_DESCRIPTION.Text, Convert.ToString(comboBoxclass.SelectedValue),txtProductConf2.Text, Convert.ToInt32(textBoxdiscount.Text));
                 MessageBox.Show("Product Updated Successfully", "Update Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

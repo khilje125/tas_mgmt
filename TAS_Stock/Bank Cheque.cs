@@ -32,8 +32,9 @@ namespace TAS_Stock
                 DataTable aTable = ab.getBankChequeDetail();
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 LocalReport localReport = reportViewer1.LocalReport;
-               
-                reportViewer1.LocalReport.ReportPath = (@"Reports/BankCheque.rdlc");
+                reportViewer1.LocalReport.ReportPath = "../../BankCheque.rdlc";
+
+                //reportViewer1.LocalReport.ReportPath = (@"Reports/BankCheque.rdlc");
                 ReportDataSource dsSalesOrder = new ReportDataSource("dsBankCheque", aTable);
                 localReport.DataSources.Add(dsSalesOrder);
                 Common.DynamicNameAndAddress(reportViewer1);

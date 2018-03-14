@@ -64,8 +64,8 @@ namespace TAS_Stock
 
         private void salesReutnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FORM_PRINT_PURCHSE_INVOICE fpsr = new FORM_PRINT_PURCHSE_INVOICE();
-            fpsr.ShowDialog();
+            CustomerSaleReturn csr = new CustomerSaleReturn();
+            csr.ShowDialog();
         }
 
         private void productStockToolStripMenuItem_Click(object sender, EventArgs e)
@@ -228,6 +228,31 @@ namespace TAS_Stock
             Manage_Class AC = new Manage_Class();
             AC.ShowDialog();
 
+        }
+
+        private void orderQuatationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FORM_PRINT_PURCHSE_INVOICE PR = new FORM_PRINT_PURCHSE_INVOICE();
+            PR.OrderQuatation();
+            PR.ShowDialog();
+        }
+
+        private void customerSaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaleByCustomer sbc = new SaleByCustomer();
+            sbc.ShowDialog();
+        }
+
+        private void saleByDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FORM_SALE fs = new FORM_SALE();
+             fs.ShowDialog();
+        }
+
+        private void reciptsPaymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReciptsPayaments rp = new ReciptsPayaments();
+            rp.ShowDialog();
         }
     }
 }

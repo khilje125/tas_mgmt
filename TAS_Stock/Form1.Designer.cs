@@ -250,7 +250,6 @@
             this.DGV_PRODUCTS_IN_ORDER.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_PRODUCTS_IN_ORDER.Size = new System.Drawing.Size(943, 256);
             this.DGV_PRODUCTS_IN_ORDER.TabIndex = 39;
-            this.DGV_PRODUCTS_IN_ORDER.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_PRODUCTS_IN_ORDER_CellContentClick);
             // 
             // BTN_ALL_ORDERS
             // 
@@ -351,6 +350,7 @@
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Products Panel";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label13
             // 

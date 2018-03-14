@@ -122,47 +122,90 @@ namespace TAS_Stock
              return tab;
          }
 
-         public int InsertOrders_PurchasedReturn(int customerId, int ProductID, string ProducName, int orderid, int qty, decimal price, decimal total, decimal discount, decimal discountedprice, DateTime AddedDate, string addedby)
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="cat_id"></param>
+        /// <param name="SearchCriteria"></param>
+        /// <returns></returns>
+        public DataTable getOrderQuatation()
+        {
+            DB db = new DB();
+            DataTable table = new DataTable();
+            table = db.getData("spr_get_OrderQuatation");
+            db.closeConnection();
+            return table;
+        }
+        public DataTable getSaleReturnByCustomerId(int customerid)
+        {
+            DB db = new DB();
+            DataTable tab = new DataTable();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@CustomerId", SqlDbType.Int);
+            parameters[0].Value = customerid;
+            tab = db.getData("[sp_GetAllSaleReturnByCustomerId]", parameters);
+            db.closeConnection();
+
+            return tab;
+        }
+        public DataTable getSaleByCustomerId(int customerid)
+        {
+            DB db = new DB();
+            DataTable tab = new DataTable();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@CustomerId", SqlDbType.Int);
+            parameters[0].Value = customerid;
+            tab = db.getData("[sp_GetTotalSaleByCustomerId]", parameters);
+            db.closeConnection();
+
+            return tab;
+        }
+
+        public void InsertOrders_PurchasedReturn(int retrunid,int customerId, int ProductID, string ProducName, int orderid, int qty, decimal price, decimal total, decimal discount, decimal discountedprice, DateTime AddedDate, string addedby)
          
          {
              try
              {
+                //@ReturnId
                 int returnedId = 0;
                 DB db = new DB();
                 db.openConnection();
-                SqlParameter[] parameters = new SqlParameter[11];
-                parameters[0] = new SqlParameter("@CustomerId", SqlDbType.Int);
-                parameters[0].Value = customerId;
+                SqlParameter[] parameters = new SqlParameter[12];
+                parameters[0] = new SqlParameter("@ReturnId", SqlDbType.Int);
+                parameters[0].Value = retrunid;
 
-                parameters[1] = new SqlParameter("@ProductID", SqlDbType.Int);
-                parameters[1].Value = ProductID;
+                parameters[1] = new SqlParameter("@CustomerId", SqlDbType.Int);
+                parameters[1].Value = customerId;
 
-                parameters[2] = new SqlParameter("@ProducName", SqlDbType.VarChar);
-                parameters[2].Value = ProducName;
+                parameters[2] = new SqlParameter("@ProductID", SqlDbType.Int);
+                parameters[2].Value = ProductID;
 
-                parameters[3] = new SqlParameter("@OrderId", SqlDbType.Int);
-                parameters[3].Value = orderid;
+                parameters[3] = new SqlParameter("@ProducName", SqlDbType.VarChar);
+                parameters[3].Value = ProducName;
 
-                parameters[4] = new SqlParameter("@Qty ", SqlDbType.Int);
-                parameters[4].Value = qty;
+                parameters[4] = new SqlParameter("@OrderId", SqlDbType.Int);
+                parameters[4].Value = orderid;
 
-                parameters[5] = new SqlParameter("@Price", SqlDbType.Int);
-                parameters[5].Value = price;
-                parameters[6] = new SqlParameter("@Total", SqlDbType.Int);
-                parameters[6].Value = total;
-                parameters[7] = new SqlParameter("@Discount", SqlDbType.Int);
-                parameters[7].Value = discount;
-                parameters[8] = new SqlParameter("@DiscountedPrice", SqlDbType.Int);
-                parameters[8].Value = discountedprice;
-                parameters[9] = new SqlParameter("@AddedDate", SqlDbType.DateTime);
-                parameters[9].Value = AddedDate;
-                parameters[10] = new SqlParameter("@AddedBy", SqlDbType.VarChar);
-                parameters[10].Value = addedby;
+                parameters[5] = new SqlParameter("@Qty ", SqlDbType.Int);
+                parameters[5].Value = qty;
 
-                returnedId= db.ExecuteProcedureReturnIdentity("spr_insert_sales_Return_by_Customer", parameters);
+                parameters[6] = new SqlParameter("@Price", SqlDbType.Int);
+                parameters[6].Value = price;
+                parameters[7] = new SqlParameter("@Total", SqlDbType.Int);
+                parameters[7].Value = total;
+                parameters[8] = new SqlParameter("@Discount", SqlDbType.Int);
+                parameters[8].Value = discount;
+                parameters[9] = new SqlParameter("@DiscountedPrice", SqlDbType.Int);
+                parameters[9].Value = discountedprice;
+                parameters[10] = new SqlParameter("@AddedDate", SqlDbType.DateTime);
+                parameters[10].Value = AddedDate;
+                parameters[11] = new SqlParameter("@AddedBy", SqlDbType.VarChar);
+                parameters[11].Value = addedby;
+
+                db.setData("spr_insert_sales_Return_by_Customer", parameters);
                 db.closeConnection();
 
-                return returnedId;
+                
              }
              catch (Exception)
              {
@@ -181,7 +224,7 @@ namespace TAS_Stock
             parameters[1] = new SqlParameter("@ToDate", SqlDbType.DateTime);
             parameters[0].Value = Convert.ToDateTime(fromdate);
             parameters[1].Value = Convert.ToDateTime(toDate);
-            tab = db.getData("[sp_GetTotalSaleByDate]", parameters);
+            tab = db.getData("[sp_GetTotalSaleBySelectiveDate]", parameters);
             db.closeConnection();
 
             return tab;

@@ -762,25 +762,28 @@ namespace TAS_Stock
 
 
                     lblCustomerID.Text = DGV_CUSTOMER.CurrentRow.Cells[0].Value.ToString();
-                    int returnid = 0;
-                    //2. looping through selected rows of dgv, and add them to datatable:
-                    for (int i = 0; i < DGV_PRODUCTS_IN_ORDER.RowCount-1; i++)
+                    int returnid = cashbook.insertMasterSaleReturn(Convert.ToInt32(lblCustomerID.Text));
+                    if (returnid >0)
+                    {
+                        for (int i = 0; i < DGV_PRODUCTS_IN_ORDER.RowCount - 1; i++)
                         {
 
-                        int orderid = 0;
-                        int customerId = Convert.ToInt32(lblCustomerID.Text);
-                        string productname = DGV_PRODUCTS_IN_ORDER.SelectedRows[i].Cells[1].Value.ToString();
-                        int quentity = Convert.ToInt32(DGV_PRODUCTS_IN_ORDER.SelectedRows[i].Cells[3].Value.ToString());
-                        decimal price = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.SelectedRows[i].Cells[2].Value.ToString());
-                        decimal total = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.SelectedRows[i].Cells[4].Value.ToString());
-                        decimal discount = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.SelectedRows[0].Cells[5].Value.ToString());
-                        decimal dicountPrice = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.SelectedRows[i].Cells[7].Value.ToString());
-                        int productid = Convert.ToInt32(DGV_PRODUCTS_IN_ORDER.SelectedRows[i].Cells[0].Value.ToString());
-                        string UserName = LogginInfo.UserID.ToString();
-                      returnid=  order.InsertOrders_PurchasedReturn(customerId, productid, productname, orderid, quentity, price, total, discount, dicountPrice, Convert.ToDateTime(DateTime.Now), UserName);
-                        //int result= order.InsertOrders_PurchasedReturn(Convert.ToInt32(lblCustomerID.Text), )
+                            int orderRetrunId = 0;
+                            int customerId = Convert.ToInt32(lblCustomerID.Text);
+                            string productname = DGV_PRODUCTS_IN_ORDER.Rows[i].Cells[1].Value.ToString();
+                            int quentity = Convert.ToInt32(DGV_PRODUCTS_IN_ORDER.Rows[i].Cells[3].Value.ToString());
+                            decimal price = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.Rows[i].Cells[2].Value.ToString());
+                            decimal total = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.Rows[i].Cells[4].Value.ToString());
+                            decimal discount = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.Rows[i].Cells[5].Value.ToString());
+                            decimal dicountPrice = Convert.ToDecimal(DGV_PRODUCTS_IN_ORDER.Rows[i].Cells[7].Value.ToString());
+                            int productid = Convert.ToInt32(DGV_PRODUCTS_IN_ORDER.Rows[i].Cells[0].Value.ToString());
+                            string UserName = LogginInfo.UserID.ToString();
+                           order.InsertOrders_PurchasedReturn(returnid,customerId, productid, productname, 0, quentity, price, total, discount, dicountPrice, Convert.ToDateTime(DateTime.Now), UserName);
+                            //int result= order.InsertOrders_PurchasedReturn(Convert.ToInt32(lblCustomerID.Text), )
 
-                        if (returnid>0)
+
+                        }
+                        if (returnid > 0)
                         {
                             MessageBox.Show("Sale Return completed successfully.\n\r Sale Return Invoice Generating...");
                             FORM_PRINT_PURCHSE_INVOICE ar = new FORM_PRINT_PURCHSE_INVOICE();
@@ -788,6 +791,8 @@ namespace TAS_Stock
                             ar.ShowDialog();
                         }
                     }
+                    //2. looping through selected rows of dgv, and add them to datatable:
+                   
 
 
                 }
