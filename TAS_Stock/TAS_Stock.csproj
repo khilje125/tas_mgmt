@@ -184,6 +184,12 @@
     <Compile Include="Cus_Sale_Return.Designer.cs">
       <DependentUpon>Cus_Sale_Return.cs</DependentUpon>
     </Compile>
+    <Compile Include="DailySale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailySale.Designer.cs">
+      <DependentUpon>DailySale.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseBackUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCustomerWiseSaleReturn.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsDailySale.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDailySale.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsOrderQuatation.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -529,14 +540,22 @@
     <EmbeddedResource Include="CustomerSaleReturn.resx">
       <DependentUpon>CustomerSaleReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReciptPayment.rdlc" />
+    <EmbeddedResource Include="DailySale.resx">
+      <DependentUpon>DailySale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReciptsPayaments.resx">
       <DependentUpon>ReciptsPayaments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReiptandPayment.resx">
       <DependentUpon>ReiptandPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerWiseSale.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Reports\BankCheque.rdlc" />
+    <EmbeddedResource Include="Reports\CurrentStock.rdlc" />
+    <EmbeddedResource Include="Reports\CustomerLedger.rdlc" />
+    <EmbeddedResource Include="Reports\CustomerWiseSale.rdlc" />
+    <EmbeddedResource Include="Reports\DailySaleReport.rdlc" />
+    <EmbeddedResource Include="Reports\OrderInvoice.rdlc" />
     <EmbeddedResource Include="Reports\OrderQuatation.rdlc" />
     <EmbeddedResource Include="Reports\CustomerWiseSaleReturn.rdlc" />
     <EmbeddedResource Include="Cus_Sale_Return.resx">
@@ -637,13 +656,12 @@
     <EmbeddedResource Include="PurchaseReturn.resx">
       <DependentUpon>PurchaseReturn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReciptPayment.rdlc" />
+    <EmbeddedResource Include="Reports\Report1 - Backup.rdlc" />
+    <EmbeddedResource Include="Reports\Report2.rdlc" />
     <EmbeddedResource Include="Reports\Report3.rdlc" />
-    <EmbeddedResource Include="BankCheque.rdlc" />
-    <EmbeddedResource Include="CurrentStock.rdlc" />
-    <EmbeddedResource Include="CustomerLedger.rdlc" />
-    <EmbeddedResource Include="OrderInvoice.rdlc" />
     <EmbeddedResource Include="Reports\Report1.rdlc" />
-    <EmbeddedResource Include="TotalReceiveable.rdlc" />
+    <EmbeddedResource Include="Reports\TotalReceiveable.rdlc" />
     <EmbeddedResource Include="ReportTotalReceivable.resx">
       <DependentUpon>ReportTotalReceivable.cs</DependentUpon>
     </EmbeddedResource>
@@ -736,6 +754,17 @@
     </None>
     <None Include="dsCustomerWiseSaleReturn.xss">
       <DependentUpon>dsCustomerWiseSaleReturn.xsd</DependentUpon>
+    </None>
+    <None Include="dsDailySale.xsc">
+      <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </None>
+    <None Include="dsDailySale.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDailySale.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsDailySale.xss">
+      <DependentUpon>dsDailySale.xsd</DependentUpon>
     </None>
     <None Include="dsOrderQuatation.xsc">
       <DependentUpon>dsOrderQuatation.xsd</DependentUpon>
@@ -978,13 +1007,6 @@
   <ItemGroup>
     <None Include="Resources\drag-drop-file-upload.png" />
     <None Include="Resources\40001.png" />
-    <Content Include="DB\StockDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DB\StockDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>StockDB.mdf</DependentUpon>
-    </Content>
     <Content Include="inventory-maintenance-icon.ico" />
     <Content Include="Resources\cloud-computing-laptop-smartphone-tablet.jpg" />
     <Content Include="Resources\inventory-management.jpg" />

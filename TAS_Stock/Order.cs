@@ -230,6 +230,21 @@ namespace TAS_Stock
             return tab;
         }
 
+        public DataTable genratedailySales(string fromdate, string toDate)
+        {
+            DB db = new DB();
+            DataTable tab = new DataTable();
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@FromDate", SqlDbType.DateTime);
+            parameters[1] = new SqlParameter("@ToDate", SqlDbType.DateTime);
+            parameters[0].Value = Convert.ToDateTime(fromdate);
+            parameters[1].Value = Convert.ToDateTime(toDate);
+            tab = db.getData("[sp_GetDailySaleDetailReport]", parameters);
+            db.closeConnection();
+
+            return tab;
+        }
+
         public DataTable getAllOrders()
         {
             DB db = new DB();
