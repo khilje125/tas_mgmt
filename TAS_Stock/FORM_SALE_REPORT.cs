@@ -85,5 +85,35 @@ namespace TAS_Stock
 
 
         }
+
+        public void GetDailySale(string fromdate, string totdate)
+        {
+
+            DataTable aTable = aOrder.genratedailySales(fromdate, totdate);
+            reportViewer1.ProcessingMode = ProcessingMode.Local;
+            LocalReport localReport = reportViewer1.LocalReport;
+
+           reportViewer1.LocalReport.ReportPath = (@"Reports/DailySaleReport.rdlc");
+           // reportViewer1.LocalReport.ReportPath = "../../DailySaleReport.rdlc";
+
+
+            //ReportParameter[] param = new ReportParameter[2];
+            ////param[0] = new ReportParameter("DateFrom", Convert.ToDateTime(fromdate).ToString("dd/MM/yyyy"));
+            ////param[1] = new ReportParameter("DateTo", Convert.ToDateTime(totdate).ToString("dd/MM/yyyy"));
+            //string schoolName = ConfigurationManager.AppSettings["SchoolNAME"].ToString();
+            //string SchoolAddress = ConfigurationManager.AppSettings["SchoolAddress"].ToString();
+
+            //param[2] = new ReportParameter("SchoolName", schoolName);
+            ////param[3] = new ReportParameter("SchoolAddress", SchoolAddress);
+            //reportViewer1.LocalReport.SetParameters(param);
+            Common.DynamicNameAndAddress(reportViewer1);
+            ReportDataSource dsSalesOrder = new ReportDataSource("dsDailySale", aTable);
+            localReport.DataSources.Add(dsSalesOrder);
+            reportViewer1.Refresh();
+
+
+
+
+        }
     }
 }
