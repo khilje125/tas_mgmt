@@ -254,5 +254,11 @@ namespace TAS_Stock
             ReciptsPayaments rp = new ReciptsPayaments();
             rp.ShowDialog();
         }
+
+        private void dailySaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DailySale ds = new DailySale();
+            ds.ShowDialog();
+        }
     }
 }

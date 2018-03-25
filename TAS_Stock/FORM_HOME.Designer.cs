@@ -47,6 +47,7 @@
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ledgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankChequeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reciptsPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.daToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,7 @@
             this.btn_LogOut = new System.Windows.Forms.Button();
             this.btn_Reports = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.reciptsPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dailySaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -131,7 +132,8 @@
             this.bankChequeToolStripMenuItem,
             this.orderQuatationToolStripMenuItem,
             this.customerSaleToolStripMenuItem,
-            this.saleByDateToolStripMenuItem});
+            this.saleByDateToolStripMenuItem,
+            this.dailySaleToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "Report";
@@ -200,16 +202,23 @@
             // ledgerToolStripMenuItem
             // 
             this.ledgerToolStripMenuItem.Name = "ledgerToolStripMenuItem";
-            this.ledgerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ledgerToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.ledgerToolStripMenuItem.Text = "Ledger";
             this.ledgerToolStripMenuItem.Click += new System.EventHandler(this.ledgerToolStripMenuItem_Click);
             // 
             // bankChequeToolStripMenuItem1
             // 
             this.bankChequeToolStripMenuItem1.Name = "bankChequeToolStripMenuItem1";
-            this.bankChequeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bankChequeToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
             this.bankChequeToolStripMenuItem1.Text = "Bank Cheque";
             this.bankChequeToolStripMenuItem1.Click += new System.EventHandler(this.bankChequeToolStripMenuItem1_Click);
+            // 
+            // reciptsPaymentsToolStripMenuItem
+            // 
+            this.reciptsPaymentsToolStripMenuItem.Name = "reciptsPaymentsToolStripMenuItem";
+            this.reciptsPaymentsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.reciptsPaymentsToolStripMenuItem.Text = "Recipts_Payments";
+            this.reciptsPaymentsToolStripMenuItem.Click += new System.EventHandler(this.reciptsPaymentsToolStripMenuItem_Click);
             // 
             // daToolStripMenuItem
             // 
@@ -405,12 +414,12 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // reciptsPaymentsToolStripMenuItem
+            // dailySaleToolStripMenuItem
             // 
-            this.reciptsPaymentsToolStripMenuItem.Name = "reciptsPaymentsToolStripMenuItem";
-            this.reciptsPaymentsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.reciptsPaymentsToolStripMenuItem.Text = "Recipts_Payments";
-            this.reciptsPaymentsToolStripMenuItem.Click += new System.EventHandler(this.reciptsPaymentsToolStripMenuItem_Click);
+            this.dailySaleToolStripMenuItem.Name = "dailySaleToolStripMenuItem";
+            this.dailySaleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.dailySaleToolStripMenuItem.Text = "Daily Sale";
+            this.dailySaleToolStripMenuItem.Click += new System.EventHandler(this.dailySaleToolStripMenuItem_Click);
             // 
             // FORM_HOME
             // 
@@ -469,5 +478,6 @@
         private System.Windows.Forms.ToolStripMenuItem customerSaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saleByDateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reciptsPaymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dailySaleToolStripMenuItem;
     }
 }
