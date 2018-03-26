@@ -130,3 +130,4 @@
 Add a comment to this line
 +# End of core ignore list, below put you custom 'per project' settings (patterns or path)
 +#####
+/ReportModel/111.txt
