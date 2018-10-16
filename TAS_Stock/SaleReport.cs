@@ -36,8 +36,7 @@ namespace TAS_Stock
                 // Set the processing mode for the ReportViewer to Local  
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 LocalReport localReport = reportViewer1.LocalReport;
-                reportViewer1.LocalReport.ReportPath = (@"Reports/OrderInvoice.rdlc");
-               // reportViewer1.LocalReport.ReportPath = "../../OrderInvoice.rdlc";
+                reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "OrderInvoice.rdlc";
                 DataTable tblCustomerInvoiceData = objorder.getCustomerDetailsForInvoiceByOrderId(orderid);
                 DataTable aTable = objorder.getOrderDetailByOrderid_CustomerId(orderid);
                 List<ModelSalesInvoice> lstModelSalesInvoice = new List<ModelSalesInvoice>();

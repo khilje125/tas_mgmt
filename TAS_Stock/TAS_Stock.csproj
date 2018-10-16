@@ -550,14 +550,28 @@
       <DependentUpon>ReiptandPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report3.rdlc" />
-    <EmbeddedResource Include="Reports\BankCheque.rdlc" />
-    <EmbeddedResource Include="Reports\CurrentStock.rdlc" />
-    <EmbeddedResource Include="Reports\CustomerLedger.rdlc" />
-    <EmbeddedResource Include="Reports\CustomerWiseSale.rdlc" />
+    <EmbeddedResource Include="Reports\BankCheque.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CurrentStock.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerLedger.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerWiseSale.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\DailySaleReport.rdlc" />
-    <EmbeddedResource Include="Reports\OrderInvoice.rdlc" />
-    <EmbeddedResource Include="Reports\OrderQuatation.rdlc" />
-    <EmbeddedResource Include="Reports\CustomerWiseSaleReturn.rdlc" />
+    <EmbeddedResource Include="Reports\OrderInvoice.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\OrderQuatation.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerWiseSaleReturn.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cus_Sale_Return.resx">
       <DependentUpon>Cus_Sale_Return.cs</DependentUpon>
     </EmbeddedResource>
@@ -656,12 +670,22 @@
     <EmbeddedResource Include="PurchaseReturn.resx">
       <DependentUpon>PurchaseReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReciptPayment.rdlc" />
+    <EmbeddedResource Include="Reports\ReciptPayment.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report1 - Backup.rdlc" />
-    <EmbeddedResource Include="Reports\Report2.rdlc" />
-    <EmbeddedResource Include="Reports\Report3.rdlc" />
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
-    <EmbeddedResource Include="Reports\TotalReceiveable.rdlc" />
+    <EmbeddedResource Include="Reports\Report2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TotalReceiveable.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportTotalReceivable.resx">
       <DependentUpon>ReportTotalReceivable.cs</DependentUpon>
     </EmbeddedResource>
@@ -671,7 +695,9 @@
     <EmbeddedResource Include="SaleReport.resx">
       <DependentUpon>SaleReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\SaleReportBydate.rdlc" />
+    <EmbeddedResource Include="Reports\SaleReportBydate.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="SALES_TOTAL.resx">
       <DependentUpon>SALES_TOTAL.cs</DependentUpon>
     </EmbeddedResource>
