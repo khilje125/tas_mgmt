@@ -28,5 +28,20 @@ namespace TAS_Stock
                 throw ex;
             }
         }
+
+        public static string GetReportPath()
+        {
+            string reportPath = "";
+            try
+            {
+                reportPath = ConfigurationManager.AppSettings["ReportPath"].ToString(); 
+            }
+            catch (Exception ex)
+            {
+                throw ex;   
+                throw;
+            }
+            return reportPath;
+        }
     }
 }

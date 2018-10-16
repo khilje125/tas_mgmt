@@ -25,8 +25,7 @@ namespace TAS_Stock
 
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 LocalReport localReport = reportViewer1.LocalReport;
-                //reportViewer1.LocalReport.ReportPath = (@"Reports/CustomerLedger.rdlc");
-              reportViewer1.LocalReport.ReportPath = "../../CustomerLedger.rdlc";
+                reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "CustomerLedger.rdlc";
                 ReportParameter[] param = new ReportParameter[2];
                 param[0] = new ReportParameter("rptParamtFromDate", fromdate);
                 param[1] = new ReportParameter("rptParamtToDate", toDate);
@@ -58,8 +57,7 @@ namespace TAS_Stock
 
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 LocalReport localReport = reportViewer1.LocalReport;
-               reportViewer1.LocalReport.ReportPath = (@"Reports/ReciptPayment.rdlc");
-                // reportViewer1.LocalReport.ReportPath = "../../ReciptPayment.rdlc";
+               reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "ReciptPayment.rdlc";
                 ReportDataSource dsSalesOrder = new ReportDataSource("dsReciptPayment", aTable);
                 localReport.DataSources.Add(dsSalesOrder);
                 Common.DynamicNameAndAddress(reportViewer1);

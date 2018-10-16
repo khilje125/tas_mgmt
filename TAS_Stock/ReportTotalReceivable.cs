@@ -27,8 +27,7 @@ namespace TAS_Stock
                 DataTable aTable = ab.getTotalReceivable();
                 reportViewerTR.ProcessingMode = ProcessingMode.Local;
                 LocalReport localReport = reportViewerTR.LocalReport;
-                reportViewerTR.LocalReport.ReportPath = (@"Reports/TotalReceiveable.rdlc");
-               //reportViewerTR.LocalReport.ReportPath = "../../TotalReceiveable.rdlc";
+                reportViewerTR.LocalReport.ReportPath = Common.GetReportPath() + "TotalReceiveable.rdlc";
                 ReportDataSource dsSalesOrder = new ReportDataSource("dsTotalR", aTable);
                 localReport.DataSources.Add(dsSalesOrder);
                Common.DynamicNameAndAddress(reportViewerTR);

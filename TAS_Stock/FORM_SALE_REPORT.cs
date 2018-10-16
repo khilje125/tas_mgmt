@@ -38,9 +38,7 @@ namespace TAS_Stock
             DataTable aTable = aOrder.genrateSales(fromdate, totdate);
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
-
-            reportViewer1.LocalReport.ReportPath = (@"Reports/SaleReportBydate.rdlc");
-        // reportViewer1.LocalReport.ReportPath = "../../SaleReportBydate.rdlc";
+            reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "SaleReportBydate.rdlc";
 
             //object totalAmtStr1 = aTable.Compute("Sum(AmountafterDiscount)", "");
 
@@ -93,8 +91,7 @@ namespace TAS_Stock
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
 
-           reportViewer1.LocalReport.ReportPath = (@"Reports/DailySaleReport.rdlc");
-           // reportViewer1.LocalReport.ReportPath = "../../DailySaleReport.rdlc";
+           reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "DailySaleReport.rdlc";
 
 
             //ReportParameter[] param = new ReportParameter[2];

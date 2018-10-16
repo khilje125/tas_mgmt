@@ -47,7 +47,7 @@ namespace TAS_Stock
             DataTable aTable = aOrder.genrateSales(fromdate, totdate);
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
-            reportViewer1.LocalReport.ReportPath = (@"Reports/Report1.rdlc");
+            reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "Report1.rdlc";
             object totalAmtStr1 = aTable.Compute("Sum(DISCOUNTEDPRICE)", "");
             List<SalesModel> objsalesdetail = new List<SalesModel>();
             foreach (DataRow row in aTable.Rows)

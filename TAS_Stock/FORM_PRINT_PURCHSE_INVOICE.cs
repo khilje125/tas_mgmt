@@ -37,9 +37,7 @@ namespace TAS_Stock
             DataTable aTable = aorder.getCustomerOrders_PurchasedReturn_CutomerInvoic(returnid);
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
-            reportViewer1.LocalReport.ReportPath = (@"Reports/Report3.rdlc");
-          // reportViewer1.LocalReport.ReportPath = "../../Report3.rdlc";
-           
+            reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + (@"Report3.rdlc");
             List<CustomerSalesRetrun> objCustomerSalesRetrun = new List<CustomerSalesRetrun>();
             foreach (DataRow row in aTable.Rows)
             {
@@ -68,8 +66,7 @@ namespace TAS_Stock
             DataTable aTable = order.getSaleReturnByCustomerId(returnid);
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
-           reportViewer1.LocalReport.ReportPath = (@"Reports/CustomerWiseSaleReturn.rdlc");
-            //reportViewer1.LocalReport.ReportPath = "../../CustomerWiseSaleReturn.rdlc";
+           reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "CustomerWiseSaleReturn.rdlc";
            Common.DynamicNameAndAddress(reportViewer1);
             ReportDataSource dscustomerSaleReturn = new ReportDataSource("dsCustomerWiseSaleReturn", aTable);
             localReport.DataSources.Add(dscustomerSaleReturn);
@@ -83,8 +80,7 @@ namespace TAS_Stock
             DataTable aTable = order.getSaleByCustomerId(returnid);
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
-            reportViewer1.LocalReport.ReportPath = (@"Reports/CustomerWiseSale.rdlc");
-          // reportViewer1.LocalReport.ReportPath = "../../CustomerWiseSale.rdlc";
+            reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "CustomerWiseSale.rdlc";
             Common.DynamicNameAndAddress(reportViewer1);
             ReportDataSource dscustomerSaleReturn = new ReportDataSource("dsCustomerSale", aTable);
             localReport.DataSources.Add(dscustomerSaleReturn);
@@ -96,8 +92,7 @@ namespace TAS_Stock
             DataTable aTable = order.getOrderQuatation();
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
-            reportViewer1.LocalReport.ReportPath = (@"Reports/OrderQuatation.rdlc");
-          // reportViewer1.LocalReport.ReportPath = "../../OrderQuatation.rdlc";
+            reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "OrderQuatation.rdlc";
              Common.DynamicNameAndAddress(reportViewer1);
             ReportDataSource dscustomerSaleReturn = new ReportDataSource("dsOrderQuatation", aTable);
             localReport.DataSources.Add(dscustomerSaleReturn);

@@ -36,7 +36,7 @@ namespace TAS_Stock
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 LocalReport localReport = reportViewer1.LocalReport;
               
-                reportViewer1.LocalReport.ReportPath = (@"Reports/TotalReceiveable.rdlc");
+                reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "TotalReceiveable.rdlc";
                 ReportDataSource dsSalesOrder = new ReportDataSource("TotalReceivableDataSet", aTable);
                 localReport.DataSources.Add(dsSalesOrder);
                 Common.DynamicNameAndAddress(reportViewer1);
@@ -45,7 +45,7 @@ namespace TAS_Stock
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 

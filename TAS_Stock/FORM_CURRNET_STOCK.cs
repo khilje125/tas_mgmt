@@ -27,8 +27,7 @@ namespace TAS_Stock
             DataTable aTable = order.GetCurrentStock();
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport localReport = reportViewer1.LocalReport;
-           /// reportViewer1.LocalReport.ReportPath = "../../CurrentStock.rdlc";
-            reportViewer1.LocalReport.ReportPath = (@"Reports/CurrentStock.rdlc");
+            reportViewer1.LocalReport.ReportPath = Common.GetReportPath() + "CurrentStock.rdlc";
             CurrentStock objStockTotal = new CurrentStock();
             List<CurrentStock> objsalesdetail = new List<CurrentStock>();
             foreach (DataRow row in aTable.Rows)
