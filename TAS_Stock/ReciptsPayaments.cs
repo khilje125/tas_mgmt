@@ -108,10 +108,11 @@ namespace TAS_Stock
                         //DataTable getLedgerData = ab.getCustomerLedgerDatebyId(id);
                         if (dataGridViewreciptPayment.Rows.Count > 0)
                         {
-                        dtCheckDate.Text = Convert.ToDateTime(selectedRow.Cells[4].Value).ToString();
+                        
                          textBoxpartyname.Text = (selectedRow.Cells[1].Value).ToString();
-                        textBoxRecipts.Text = (selectedRow.Cells[2].Value).ToString();
-                        textBoxPayment.Text = (selectedRow.Cells[3].Value).ToString();
+                        dtCheckDate.Text = Convert.ToDateTime(selectedRow.Cells[2].Value).ToString();
+                        textBoxRecipts.Text = (selectedRow.Cells[3].Value).ToString();
+                        textBoxPayment.Text = (selectedRow.Cells[4].Value).ToString();
                         BTN_Order.Visible = false;
                         btnupdate.Visible = true;
 
