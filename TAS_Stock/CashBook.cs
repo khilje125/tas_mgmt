@@ -220,30 +220,7 @@ namespace TAS_Stock
             return invoiceId;
         }
 
-        public void UpdateReciptAndPayment(int accountId, string partyname, decimal recipts, decimal payment, decimal total, string CashbokDate)
-        {
-           
-            DB db = new DB();
-            db.openConnection();
-            SqlParameter[] parameters = new SqlParameter[6];
-
-            parameters[0] = new SqlParameter("@accountId", SqlDbType.Int);
-            parameters[0].Value = accountId;
-            parameters[1] = new SqlParameter("@partyname", SqlDbType.VarChar);
-            parameters[1].Value = partyname;
-            parameters[2] = new SqlParameter("@recipts", SqlDbType.Money);
-            parameters[2].Value = recipts;
-            parameters[3] = new SqlParameter("@payment", SqlDbType.Money);
-            parameters[3].Value = payment;
-            parameters[4] = new SqlParameter("@CashbokDate", SqlDbType.VarChar);
-            parameters[4].Value = Convert.ToDateTime(CashbokDate);
-            parameters[5] = new SqlParameter("@Total", SqlDbType.Money);
-            parameters[5].Value = Convert.ToDouble(total);
-            // @CashbokDate
-            db.setData("spr_update_ReceiptePayment", parameters);
-            db.closeConnection();
-           
-        }
+        
 
         public DataTable getCustomerLedgeer(string fromdate, string toDate, int customerId)
         {
@@ -329,6 +306,31 @@ namespace TAS_Stock
             receiptId = db.ExecuteProcedureReturnIdentity("spr_insert_ReceiptAndPayment", parameters);
             db.closeConnection();
             return receiptId;
+        }
+
+        public void UpdateReciptAndPayment(int accountId, string partyname, decimal recipts, decimal payment, decimal total, string CashbokDate)
+        {
+
+            DB db = new DB();
+            db.openConnection();
+            SqlParameter[] parameters = new SqlParameter[6];
+
+            parameters[0] = new SqlParameter("@accountId", SqlDbType.Int);
+            parameters[0].Value = accountId;
+            parameters[1] = new SqlParameter("@partyname", SqlDbType.VarChar);
+            parameters[1].Value = partyname;
+            parameters[2] = new SqlParameter("@recipts", SqlDbType.Money);
+            parameters[2].Value = recipts;
+            parameters[3] = new SqlParameter("@payment", SqlDbType.Money);
+            parameters[3].Value = payment;
+            parameters[4] = new SqlParameter("@CashbokDate", SqlDbType.VarChar);
+            parameters[4].Value = Convert.ToDateTime(CashbokDate);
+            parameters[5] = new SqlParameter("@Total", SqlDbType.Money);
+            parameters[5].Value = Convert.ToDouble(total);
+            // @CashbokDate
+            db.setData("spr_update_ReceiptePayment", parameters);
+            db.closeConnection();
+
         }
     }
 }
